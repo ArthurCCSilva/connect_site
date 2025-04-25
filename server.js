@@ -7,7 +7,7 @@ const app = express() //Aqui crio a variavel app para receber a função express
 app.use(express.json())//Para usar json
 
 
-const users =[]
+
 
 
 app.post('/users', async(req, res) =>{//metodo para add usuário
