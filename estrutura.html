@@ -1,0 +1,27 @@
+connect_site/
+│
+├── frontend/            # Aplicação React (frontend)
+│   ├── public/
+│   ├── src/
+│   │   ├── components/  # Componentes reutilizáveis
+│   │   ├── pages/       # Páginas principais
+│   │   ├── services/    # Serviços para chamadas à API
+│   │   ├── hooks/       # Hooks personalizados
+│   │   ├── App.js       # Componente principal
+│   │   └── index.js     # Ponto de entrada
+│   ├── package.json
+│   └── .env             # Variáveis de ambiente do frontend
+│
+├── backend/            # Aplicação Node.js (backend)
+│   ├── controllers/     # Lógica das rotas
+│   ├── routes/          # Definição das rotas
+│   ├── models/          # Modelos do MongoDB
+│   ├── middleware/      # Middleware personalizado
+│   ├── config/          # Configurações (ex: conexão com o banco)
+│   ├── utils/           # Funções auxiliares
+│   ├── server.js        # Configuração principal do servidor
+│   ├── package.json
+│   └── .env             # Variáveis de ambiente do backend
+│
+├── .gitignore
+└── README.md
