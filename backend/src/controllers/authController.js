@@ -55,3 +55,21 @@ export const login = async (req, res) => {
     res.status(500).json({ error: 'Erro ao fazer login' });
   }
 };
+
+// Lista todos os usuários (sem senha)
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        createdAt: true,
+      },
+    });
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar usuários' });
+  }
+};

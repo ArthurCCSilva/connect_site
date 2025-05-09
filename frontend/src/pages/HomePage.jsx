@@ -9,6 +9,7 @@ const HomePage = () => {
         <ul>
           <li><Link to="/login">Entrar</Link></li>
           <li><Link to="/register">Cadastrar-se</Link></li>
+          <li><Link to="/cadastros">Ver Cadastros</Link></li> {/* Novo link */}
         </ul>
       </nav>
     </div>
