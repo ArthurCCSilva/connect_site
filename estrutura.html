@@ -1,27 +1,40 @@
 connect_site/
 │
-├── frontend/            # Aplicação React (frontend)
+├── backend/               # Backend: Node.js + Express + Prisma ORM
+│   ├── prisma/
+│   │   └── schema.prisma   # Modelo da base de dados
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   └── authController.js
+│   │   ├── routes/
+│   │   │   └── authRoutes.js
+│   │   ├── middleware/
+│   │   │   └── authMiddleware.js
+│   │   ├── utils/
+│   │   │   └── generateToken.js
+│   │   ├── config/
+│   │   │   └── db.js
+│   │   ├── app.js
+│   │   └── server.js
+│   │
+│   ├── .env
+│   ├── package.json
+│   └── README.md
+│
+├── frontend/              # Frontend: React App
 │   ├── public/
 │   ├── src/
-│   │   ├── components/  # Componentes reutilizáveis
-│   │   ├── pages/       # Páginas principais
-│   │   ├── services/    # Serviços para chamadas à API
-│   │   ├── hooks/       # Hooks personalizados
-│   │   ├── App.js       # Componente principal
-│   │   └── index.js     # Ponto de entrada
+│   │   ├── components/
+│   │   │   └── AuthForm.jsx
+│   │   ├── pages/
+│   │   │   ├── LoginPage.jsx
+│   │   │   └── RegisterPage.jsx
+│   │   ├── services/
+│   │   │   └── authService.js
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
 │   ├── package.json
-│   └── .env             # Variáveis de ambiente do frontend
+│   └── .env
 │
-├── backend/            # Aplicação Node.js (backend)
-│   ├── controllers/     # Lógica das rotas
-│   ├── routes/          # Definição das rotas
-│   ├── models/          # Modelos do MongoDB
-│   ├── middleware/      # Middleware personalizado
-│   ├── config/          # Configurações (ex: conexão com o banco)
-│   ├── utils/           # Funções auxiliares
-│   ├── server.js        # Configuração principal do servidor
-│   ├── package.json
-│   └── .env             # Variáveis de ambiente do backend
-│
-├── .gitignore
 └── README.md
