@@ -1,5 +1,5 @@
 // src/pages/RegisterPage.jsx
-import React from 'react';
+
 import AuthForm from '../components/AuthForm';
 
 const RegisterPage = () => {

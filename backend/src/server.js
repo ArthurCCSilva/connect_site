@@ -1,6 +1,6 @@
 // src/server.js
 
-import app from './app.js'; // 👈 Adicione .js aqui
+import app from './app.js';
 import { config } from 'dotenv';
 
 const PORT = config().parsed.PORT;

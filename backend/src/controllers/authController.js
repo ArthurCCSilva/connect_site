@@ -7,7 +7,7 @@ import generateToken from '../utils/generateToken.js';
 
 // Registro
 export const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, phone } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -17,6 +17,7 @@ export const register = async (req, res) => {
         name,
         email,
         password: hashedPassword,
+        phone,
       },
     });
 

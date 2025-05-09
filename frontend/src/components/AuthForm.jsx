@@ -1,10 +1,9 @@
-// src/components/AuthForm.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { registerUser, loginUser } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 
 const AuthForm = ({ isLogin }) => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', phone: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -51,6 +50,19 @@ const AuthForm = ({ isLogin }) => {
       <div>
         <label>Senha:
           <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+        </label>
+      </div>
+
+      <div>
+        <label>Telefone:
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="(XX) XXXXX-XXXX"
+            // remova "required" se for opcional
+          />
         </label>
       </div>
 
