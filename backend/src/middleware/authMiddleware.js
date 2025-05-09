@@ -1,11 +1,8 @@
-// src/middleware/authMiddleware.js
-
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('dotenv').config().parsed;
 
 const protect = (req, res, next) => {
   const authHeader = req.headers.authorization;
-
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'Não autorizado' });
   }
@@ -21,4 +18,4 @@ const protect = (req, res, next) => {
   }
 };
 
-module.exports = protect;
+export default protect;

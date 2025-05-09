@@ -1,17 +1,24 @@
 // src/controllers/authController.js
 
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import { prisma } from '../config/db.js';
 import generateToken from '../utils/generateToken.js';
 
-// Registro
+/// Registro
 export const register = async (req, res) => {
   const { name, email, password, phone } = req.body;
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: 'Nome, email e senha são obrigatórios' });
+  }
 
+  try {
+    const existingUser = await prisma.user.findUnique({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ error: 'Email já cadastrado' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
     const user = await prisma.user.create({
       data: {
         name,
@@ -22,7 +29,6 @@ export const register = async (req, res) => {
     });
 
     const token = generateToken(user.id);
-
     res.status(201).json({ message: 'Usuário criado', token });
   } catch (error) {
     console.error(error);

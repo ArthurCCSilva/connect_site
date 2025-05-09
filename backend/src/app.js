@@ -18,4 +18,10 @@ app.get('/', (req, res) => {
   res.json({ message: 'API funcionando!' });
 });
 
+// Middleware de erro global
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Ocorreu um erro no servidor.' });
+});
+
 export default app;
