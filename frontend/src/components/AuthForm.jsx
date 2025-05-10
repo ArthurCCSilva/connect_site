@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { registerUser, loginUser } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 
+//CSS
+import './AuthForm.css'; //Importa o CSS externo
+
 const AuthForm = ({ isLogin }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -38,67 +41,78 @@ const AuthForm = ({ isLogin }) => {
     }
   };
 
+  //AQUI FICA O QUE APARECE NO INDEX.JS
   return (
-    <form onSubmit={handleSubmit}>
+    <form 
+      onSubmit={handleSubmit} 
+      className="auth-form needs-validation"
+    >
       {!isLogin && (
-        <div>
-          <label>
-            Nome:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required={!isLogin}
-            />
-          </label>
+        <div className="mb-3">
+          <label className="form-label">Nome:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="form-control"
+            placeholder="Digite seu nome"
+            required={!isLogin}
+          />
         </div>
       )}
 
-      <div>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
+      <div className="mb-3">
+        <label className="form-label">Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="exemplo@email.com"
+          required
+        />
       </div>
 
-      <div>
-        <label>
-          Senha:
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </label>
+      <div className="mb-3">
+        <label className="form-label">Senha:</label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="••••••••"
+          required
+        />
       </div>
 
       {/* Campo telefone apenas no cadastro */}
       {!isLogin && (
-        <div>
-          <label>
-            Telefone:
-            <input
-              type="text"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="(XX) XXXXX-XXXX"
-            />
-          </label>
+        <div className="mb-3">
+          <label className="form-label">Telefone:</label>
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="form-control"
+            placeholder="(XX) XXXXX-XXXX"
+          />
         </div>
       )}
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="submit">{isLogin ? 'Entrar' : 'Cadastrar'}</button>
+      {error && <p className="text-danger mb-3">{error}</p>}
+
+      <button 
+      type="submit" 
+      id="button"
+      className="btn btn-primary w-100"
+      >
+      {isLogin ? 'Entrar' : 'Cadastrar'}
+      </button>
+      
     </form>
   );
 };

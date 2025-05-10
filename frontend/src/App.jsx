@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
+
 import UsersPage from './pages/UsersPage'; // Nova página
 
+import NavBar from './components/NavBar';
 function App() {
   return (
     <Router>
+      <NavBar /> {/* Navbar aparece em todas as páginas */}
       <Routes>
         {/* Página inicial */}
         <Route path="/" element={<HomePage />} />
@@ -17,7 +20,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
-        <Route path="/cadastros" element={<UsersPage />} /> {/* Nova rota */}
+
+        <Route path="/cadastros" element={<UsersPage />} />{/* Nova rota */}
 
         {/* Redirecionamento padrão (ex: página não encontrada) */}
         <Route path="*" element={<Navigate to="/" replace />} />
@@ -25,5 +29,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;

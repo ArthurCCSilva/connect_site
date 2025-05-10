@@ -31,9 +31,11 @@ const UsersPage = () => {
       {loading ? (
         <p>Carregando...</p>
       ) : (
-        <ul>
+        <ul
+          className="mb-3 list-group"
+        >
           {users.map((user) => (
-            <li key={user.id}>
+            <li className="list-group-item" key={user.id}>
               <strong>{user.name}</strong> - {user.email} ({new Date(user.createdAt).toLocaleDateString()})
             </li>
           ))}
