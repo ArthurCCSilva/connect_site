@@ -4,7 +4,8 @@
 const HomePage = () => {
   return (
     <div>
-      <h1>Bem-vindo ao Sistema</h1>
+      <h1>arthur</h1>
+      
       {/*!--<nav>
         <ul>
           <li><Link to="/login">Entrar</Link></li>

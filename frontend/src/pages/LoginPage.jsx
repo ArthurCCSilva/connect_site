@@ -1,6 +1,7 @@
 // src/pages/LoginPage.jsx
 import AuthForm from '../components/AuthForm';
 
+
 const LoginPage = () => {
   return (
     <div>
